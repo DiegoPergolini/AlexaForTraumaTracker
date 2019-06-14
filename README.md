@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="https://github.com/DiegoPergolini/AlexaForTraumaTracker/blob/master/images/logo.png?raw=true" alt="Alexa For trauma Tracker Logo"/>
-</p>
+![Alexa For trauma Tracker Logo](https://github.com/DiegoPergolini/AlexaForTraumaTracker/blob/master/images/logo.png?raw=true)
 # Alexa For Trauma Tracker
 ## Introduzione
 I medici dell'Ospedale Bufalini di Cesena vorrebbero interagire vocalmente con i sistemi di ausilio alle loro attività, sopratutto in quelle situazioni critiche dove poter disporre di un interazione hands-free con le applicazioni è fondamentale. L'ambito più importante è infatti proprio quello della Trauma Room, dove è già presente l'applicazione Trauma Tracker, tramite la quale è possibile registrare tutti gli eventi legati al trattamento di un caso d'emergenza, utilizzando però l'interfaccia grafica di un tablet, rendendo necessaria un'interazione fisica.<br/>
