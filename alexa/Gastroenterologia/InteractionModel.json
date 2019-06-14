@@ -1,0 +1,48 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "gastroenterologia",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "IniziaEsameIntent",
+                    "slots": [],
+                    "samples": [
+                        "apri esame",
+                        "inizia registrazione esame",
+                        "avvia esame",
+                        "inizia esame"
+                    ]
+                },
+                {
+                    "name": "FineEsameIntent",
+                    "slots": [],
+                    "samples": [
+                        "concludi",
+                        "chiudi registrazione",
+                        "concludi esame",
+                        "chiudi esame",
+                        "termina esame",
+                        "termina registrazione esame"
+                    ]
+                }
+            ],
+            "types": []
+        }
+    }
+}

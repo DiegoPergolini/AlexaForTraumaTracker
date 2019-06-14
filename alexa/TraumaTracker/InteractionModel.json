@@ -1,0 +1,1410 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "trauma",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": [
+                        "cancella comando",
+                        "Cancella ultimo comando"
+                    ]
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "IntubazioneOrotracheale",
+                    "slots": [
+                        {
+                            "name": "vieaeree",
+                            "type": "BOOLEAN",
+                            "samples": [
+                                "via aree {vieaeree}",
+                                "{vieaeree}"
+                            ]
+                        },
+                        {
+                            "name": "inalazione",
+                            "type": "BOOLEAN",
+                            "samples": [
+                                "{inalazione}",
+                                "inalazione {inalazione}"
+                            ]
+                        },
+                        {
+                            "name": "videolaringo",
+                            "type": "BOOLEAN",
+                            "samples": [
+                                "{videolaringo}",
+                                "Videolaringo {videolaringo}"
+                            ]
+                        },
+                        {
+                            "name": "frova",
+                            "type": "BOOLEAN",
+                            "samples": [
+                                "{frova}",
+                                "frova {frova}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "manovra intubazione orotracheale",
+                        "manovra intubazione orotracheale via aree {vieaeree} inalazione {inalazione} video laringo {videolaringo} frova {frova}"
+                    ]
+                },
+                {
+                    "name": "ManovraIntent",
+                    "slots": [
+                        {
+                            "name": "manovra",
+                            "type": "MANOVRA"
+                        }
+                    ],
+                    "samples": [
+                        "manovra {manovra}",
+                        "eseguita manovra {manovra}"
+                    ]
+                },
+                {
+                    "name": "DrenaggioToracico",
+                    "slots": [
+                        {
+                            "name": "sinistro",
+                            "type": "BOOLEAN",
+                            "samples": [
+                                "{sinistro}",
+                                "Sinistro {sinistro}"
+                            ]
+                        },
+                        {
+                            "name": "destro",
+                            "type": "BOOLEAN",
+                            "samples": [
+                                "{destro}",
+                                "Destro {destro}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "manovra drenaggio toracico"
+                    ]
+                },
+                {
+                    "name": "DecompressionePleurica",
+                    "slots": [
+                        {
+                            "name": "sinistro",
+                            "type": "BOOLEAN",
+                            "samples": [
+                                "{sinistro}",
+                                "sinistro {sinistro}"
+                            ]
+                        },
+                        {
+                            "name": "destro",
+                            "type": "BOOLEAN",
+                            "samples": [
+                                "Destro {destro}",
+                                "{destro}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "manovra decompressione pleurica"
+                    ]
+                },
+                {
+                    "name": "DiagnosticaIntent",
+                    "slots": [
+                        {
+                            "name": "diagnostica",
+                            "type": "DIAGNOSTICA"
+                        }
+                    ],
+                    "samples": [
+                        "diagnostica {diagnostica}"
+                    ]
+                },
+                {
+                    "name": "ProcedureIntent",
+                    "slots": [
+                        {
+                            "name": "procedure",
+                            "type": "PROCEDURE"
+                        }
+                    ],
+                    "samples": [
+                        "procedura {procedure}"
+                    ]
+                },
+                {
+                    "name": "DiagnosticaROTEMIntent",
+                    "slots": [
+                        {
+                            "name": "extemCT",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{extemCT} secondi",
+                                "{extemCT}"
+                            ]
+                        },
+                        {
+                            "name": "extemADieci",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{extemADieci} millimetri",
+                                "{extemADieci}"
+                            ]
+                        },
+                        {
+                            "name": "extemAlpha",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{extemAlpha}",
+                                "{extemAlpha} gradi"
+                            ]
+                        },
+                        {
+                            "name": "fibtemACinque",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{fibtemACinque}",
+                                "{fibtemACinque} millimetri"
+                            ]
+                        },
+                        {
+                            "name": "iperfibrinolis",
+                            "type": "BOOLEAN",
+                            "samples": [
+                                "{iperfibrinolis}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "diagnostica rotem",
+                        "diagnostica rotem {extemCT} {extemADieci} {extemAlpha} {fibtemACinque} {iperfibrinolis}"
+                    ]
+                },
+                {
+                    "name": "ManovraTempoDipendenteIntent",
+                    "slots": [
+                        {
+                            "name": "fase",
+                            "type": "FASI"
+                        },
+                        {
+                            "name": "manovraT",
+                            "type": "MANOVRATEMPODIPENDENTE"
+                        }
+                    ],
+                    "samples": [
+                        "{fase} manovra {manovraT}"
+                    ]
+                },
+                {
+                    "name": "IniziaCasoIntent",
+                    "slots": [],
+                    "samples": [
+                        "apri caso",
+                        "inizia registrazione trauma",
+                        "inizia trauma",
+                        "avvia caso",
+                        "incomincia caso",
+                        "inizia caso"
+                    ]
+                },
+                {
+                    "name": "FineCasoIntent",
+                    "slots": [],
+                    "samples": [
+                        "fine trauma",
+                        "termina registrazione caso",
+                        "chiudi caso",
+                        "concludi caso",
+                        "termina caso",
+                        "fine caso"
+                    ]
+                },
+                {
+                    "name": "ReportOverviewIntent",
+                    "slots": [],
+                    "samples": [
+                        "fammi vedere report overview",
+                        "mostra report overview",
+                        "visualizza report overview"
+                    ]
+                },
+                {
+                    "name": "FarmacoIntent",
+                    "slots": [
+                        {
+                            "name": "farmaco",
+                            "type": "FARMACI"
+                        },
+                        {
+                            "name": "quantita",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "farmaco {farmaco} dose {quantita}",
+                        "farmaco {farmaco}"
+                    ]
+                },
+                {
+                    "name": "InfusioniContinueIntent",
+                    "slots": [
+                        {
+                            "name": "fase",
+                            "type": "FASI"
+                        },
+                        {
+                            "name": "farmaco",
+                            "type": "FARMACI"
+                        },
+                        {
+                            "name": "dose",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "{fase} infusione {farmaco}",
+                        "{fase} infusione {farmaco} dose {dose}"
+                    ]
+                },
+                {
+                    "name": "DiagnosticaEGALattati",
+                    "slots": [
+                        {
+                            "name": "intero",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{intero}",
+                                "{intero} punto {decimale}",
+                                "{intero} virgola {decimale}"
+                            ]
+                        },
+                        {
+                            "name": "decimale",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "diagnostica ega lattati {intero} punto {decimale}",
+                        "ega lattati {intero} punto {decimale}",
+                        "ega lattati {intero} virgola {decimale}",
+                        "ega lattati",
+                        "diagnostica ega lattati",
+                        "diagnostica ega lattati {intero} virgola {decimale}"
+                    ]
+                },
+                {
+                    "name": "DiagnosticaEgaBE",
+                    "slots": [
+                        {
+                            "name": "intero",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{intero}",
+                                "{segno} {intero}",
+                                "{segno} {intero} punto {decimale}",
+                                "{segno} {intero} virgola {decimale}",
+                                "{intero} virgola {decimale}",
+                                "{intero} punto {decimale}"
+                            ]
+                        },
+                        {
+                            "name": "decimale",
+                            "type": "AMAZON.NUMBER"
+                        },
+                        {
+                            "name": "segno",
+                            "type": "SEGNO"
+                        }
+                    ],
+                    "samples": [
+                        "ega b e {segno} {intero}",
+                        "ega b e {segno} {intero} virgola {decimale}",
+                        "ega b e {segno} {intero} punto {decimale}",
+                        "ega b e {intero} punto {decimale}",
+                        "ega b e {intero} virgola {decimale}",
+                        "ega b e",
+                        "diagnostica ega b e",
+                        "diagnostica ega be {intero} virgola {decimale}"
+                    ]
+                },
+                {
+                    "name": "DiagnosticaEgaPH",
+                    "slots": [
+                        {
+                            "name": "intero",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{intero}",
+                                "{intero} punto {decimale}",
+                                "{intero} virgola {decimale}"
+                            ]
+                        },
+                        {
+                            "name": "decimale",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "ega p h",
+                        "ega ph  {intero} virgola {decimale}",
+                        "ega p h {intero} punto {decimale}",
+                        "diagnostica ega p h",
+                        "diagnostica ega p h {intero} virgola {decimale}"
+                    ]
+                },
+                {
+                    "name": "DiagnosticaEgaHB",
+                    "slots": [
+                        {
+                            "name": "intero",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{intero}",
+                                "{intero} punto {decimale}",
+                                "{intero} virgola {decimale}"
+                            ]
+                        },
+                        {
+                            "name": "decimale",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "ega emoglobina {intero} virgola  {decimale}",
+                        "ega emoglobina",
+                        "ega emoglobina {intero} punto {decimale}",
+                        "diagnostica ega emoglobina",
+                        "diagnostica ega emoglobina {intero} virgola {decimale}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "MANOVRA",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "foley vescicale"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sonda gastrica"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fissatore esterno"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pelvic binder"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "catetere arterioso"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "intraossea"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "infusore a pressione"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "crico tiro"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fibroscopia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "presidio sovraglottico"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "BOOLEAN",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "no"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "si"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "FARMACIUI",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "emazie concentrate"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "piastrine"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "plasma fresco concentrato"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "complesso protrombinico"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "FARMACIMG",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "fentanil"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fibrinogeno"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "acido tranexamico"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "adrenalina"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "atropina"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "curaro"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "SUCCINILCOLINA"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ketamina"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "midazolam"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tiopentone"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "UNITADIMISURAGRAMMI",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "mcg",
+                                "synonyms": [
+                                    "milionesimi di grammo",
+                                    "milionesimo di grammo"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mg",
+                                "synonyms": [
+                                    "milligrammo",
+                                    "milligrammi"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "g",
+                                "synonyms": [
+                                    "grammo",
+                                    "grammi"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "UNITADIMISURAUI",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "ui",
+                                "synonyms": [
+                                    "unità internazionali"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "DIAGNOSTICA",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "wb tc"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tc toraco addominale"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tc cerebrale-cervicale"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "rx bacino"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "rx torace"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ecografia"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "FARMACIML",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "mannitolo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "soluzione ipertonica"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cristalloidi"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "UNITADIMISURAML",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "m.l.",
+                                "synonyms": [
+                                    "millilitri"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "PROCEDURE",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "protocollo trasfusione massiva",
+                                "synonyms": [
+                                    "ptm"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "profilassi abt"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Shock elettrico"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "FASI",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "modifica",
+                                "synonyms": [
+                                    "cambia"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fine",
+                                "synonyms": [
+                                    "finita",
+                                    "stop"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "inizio",
+                                "synonyms": [
+                                    "inizia"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "MANOVRATEMPODIPENDENTE",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "ALS"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "TORACOTOMIA RESUSCITATIVA",
+                                "synonyms": [
+                                    "toracotomia"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "REBOA"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "TOURNIQUET"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "FARMACI",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "noradrenalina"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ketanest"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "propofol"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mannitolo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "soluzione ipertonica"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cristalloidi"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fentanil"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fibrinogeno"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "acido tranexamico"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "adrenalina"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "atropina"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "curaro"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "SUCCINILCOLINA"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ketamina"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "midazolam"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tiopentone"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "emazie concentrate"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "piastrine"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "plasma fresco concentrato"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "complesso protrombinico"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "FARMACIINFUSIONECONTINUA",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "MANNITOLO"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ACIDO TRANEXAMICO"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "CURARO"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "FENTANIL"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "TIOPENTONE"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "MIDAZOLAM "
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "SUCCINILCOLINA"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "KETAMINA "
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "KETANEST"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "PROPOFOL"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "NORADRENALINA"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ADRENALINA"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "SEGNO",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "meno"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "IntubazioneOrotracheale",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "vieaeree",
+                            "type": "BOOLEAN",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.10937747390.1092807260169"
+                            }
+                        },
+                        {
+                            "name": "inalazione",
+                            "type": "BOOLEAN",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.10937747390.459870258629"
+                            }
+                        },
+                        {
+                            "name": "videolaringo",
+                            "type": "BOOLEAN",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.10937747390.1153773945366"
+                            }
+                        },
+                        {
+                            "name": "frova",
+                            "type": "BOOLEAN",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1525865952883.864466843760"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ManovraIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "manovra",
+                            "type": "MANOVRA",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                },
+                {
+                    "name": "DrenaggioToracico",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "sinistro",
+                            "type": "BOOLEAN",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1262572635509.1501868857287"
+                            }
+                        },
+                        {
+                            "name": "destro",
+                            "type": "BOOLEAN",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1262572635509.224091575486"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "DecompressionePleurica",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "sinistro",
+                            "type": "BOOLEAN",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.187810235732.1138157534181"
+                            }
+                        },
+                        {
+                            "name": "destro",
+                            "type": "BOOLEAN",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.187810235732.1344726806346"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "DiagnosticaROTEMIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "extemCT",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.953237305325.893676790101"
+                            }
+                        },
+                        {
+                            "name": "extemADieci",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.953237305325.12366746907"
+                            }
+                        },
+                        {
+                            "name": "extemAlpha",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.953237305325.246389409483"
+                            }
+                        },
+                        {
+                            "name": "fibtemACinque",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.953237305325.840349782160"
+                            }
+                        },
+                        {
+                            "name": "iperfibrinolis",
+                            "type": "BOOLEAN",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.953237305325.618181539038"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "FarmacoIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "farmaco",
+                            "type": "FARMACI",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "quantita",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                },
+                {
+                    "name": "DiagnosticaEGALattati",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "intero",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.861371676172.774760636285"
+                            }
+                        },
+                        {
+                            "name": "decimale",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                },
+                {
+                    "name": "DiagnosticaEgaBE",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "intero",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.317113660554.1449073035621"
+                            }
+                        },
+                        {
+                            "name": "decimale",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "segno",
+                            "type": "SEGNO",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                },
+                {
+                    "name": "DiagnosticaEgaPH",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "intero",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1408269704728.217017385831"
+                            }
+                        },
+                        {
+                            "name": "decimale",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                },
+                {
+                    "name": "DiagnosticaEgaHB",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "intero",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1031182259058.806435335095"
+                            }
+                        },
+                        {
+                            "name": "decimale",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.10937747390.1092807260169",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Via aeree si o no?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.10937747390.459870258629",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Inalazione si o no?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.10937747390.1153773945366",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Videolaringo si o no?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1525865952883.864466843760",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "frova si o no?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1262572635509.1501868857287",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Sinistro si o no?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1262572635509.224091575486",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Destro si o no?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.187810235732.1138157534181",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Sinistro si o no?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.187810235732.1344726806346",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Destro si o no?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1524167118964.338946615455",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Qual'è il valore dei Lattati?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1524167118964.143843240198",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Qual'è il valore di Bi e  ?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1524167118964.395255840375",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Qual'è il valore del pi acca?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1524167118964.573777815609",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Qual'è il valore di HB?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.953237305325.893676790101",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Qual'è il numero di secondi di Extem CT?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.953237305325.12366746907",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Quanti millimetri per extem A dieci?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.953237305325.246389409483",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Quanti gradi per extem alpha?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.953237305325.840349782160",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Quanti millimetri per fibtem A cinque?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.953237305325.618181539038",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "iperfibrinolis si o no?"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.187415241508.230188826215.1188061464564",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Il farmaco da te indicato non esiste, prova a ripetere"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.861371676172.774760636285",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Valore lattati?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.317113660554.1449073035621",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Valore b e?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1408269704728.217017385831",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Valore ph?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1031182259058.806435335095",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Valore hb?"
+                    }
+                ]
+            }
+        ]
+    }
+}

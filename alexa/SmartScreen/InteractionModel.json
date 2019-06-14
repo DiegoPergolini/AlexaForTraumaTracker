@@ -1,0 +1,35 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "smart screen",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": [
+                        "aiuto"
+                    ]
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "VisualizzaInformazioniIntent",
+                    "slots": [],
+                    "samples": [
+                        "Visualizza informazioni"
+                    ]
+                }
+            ],
+            "types": []
+        }
+    }
+}

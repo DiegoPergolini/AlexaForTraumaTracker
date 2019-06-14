@@ -1,0 +1,37 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "informazioni stanza",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "RoomAbilitiesIntent",
+                    "slots": [],
+                    "samples": [
+                        "cosa sai fare",
+                        "cosa sa fare questa stanza",
+                        "che servizi offre questa stanza",
+                        "Che funzionalità ha questa stanza",
+                        "Cosa puoi fare"
+                    ]
+                }
+            ],
+            "types": []
+        }
+    }
+}
