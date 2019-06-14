@@ -19,4 +19,4 @@ I passi qui descritti sono riguardanti la Skill Trauma Tracker, ma lo stesso ide
 
 _Si ricorda che per utilizzare le skill nei propri dispositivi Alexa Abilitated bisogna utilizzare lo __stesso__ account sia per la creazione delle Skill che per la configurazione dei Device (ad esempio Echo Plus)._
 ## Uso delle Skill
-Riguardo a come interagire vocalmente con le Skill Alexa si fa riferimento alla sezione 5 della nostra [relazione](https://github.com/DiegoPergolini/AlexaForTraumaTracker/tree/master/alexa/TraumaTracker/Alexa_For_Trauma_Tracker.pdf) di progetto.
+Riguardo a come interagire vocalmente con le Skill Alexa si fa riferimento alla sezione 5 della nostra [relazione](https://github.com/DiegoPergolini/AlexaForTraumaTracker/tree/master/Alexa_For_Trauma_Tracker.pdf) di progetto.
