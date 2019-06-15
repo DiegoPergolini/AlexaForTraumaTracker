@@ -7,7 +7,7 @@ L'obbiettivo è quindi quello di realizzare un sistema che permetta di interagir
 Al momento i servizi con cui è richiesta l'integrazione sono Trauma Tracker e l'applicazione per comandare gli Smart Screen, il sistema dovrà essere però realizzato in modo che sia facile aggiungere nuove funzionalità. Il sistema dovrà esser capace di fornire funzionalità vocali diverse in base alla stanza d'ospedale in cui viene utilizzato.
 ## Istruzioni
 Di seguito le istruzioni da seguire se si vuole riprodurre il sistema da noi realizzato.
-### Creare una Skill Alexa e relativa Lambda Function
+## Creare una Skill Alexa e relativa Lambda Function
 I passi qui descritti sono riguardanti la Skill Trauma Tracker, ma lo stesso identico discorso vale per le altre Skill realizzate, cambiando solo i file da utilizzare.
 - La creazione di una Skill Alexa è molto semplice, per farlo bisogna però dotarsi di un account Alexa Developer, facilmente ottenibile tramite apposita registrazione. Una volta ottenuto l'account per creare una Skill basta seguire i semplici passi illustrati in questa [Guida Creazione Skill](https://developer.amazon.com/docs/devconsole/create-a-skill-and-choose-the-interaction-model.html) fornita da Amazon. A titolo esemplificativo riportiamo uno [screenshot](https://github.com/DiegoPergolini/AlexaForTraumaTracker/tree/master/images/AlexaConsoleJsonEditor.png) della dashboard
 
@@ -18,5 +18,52 @@ I passi qui descritti sono riguardanti la Skill Trauma Tracker, ma lo stesso ide
 - A questo punto, dopo aver copiato l'indirizzo ARN della lambda function creata, lo si potrà incollare nella sezione __Endpoint__ della Alexa Developer Console. Compiuto questo passo di potrà fare la build del modello e dopo pochi minuti il sistema segnalerà l'effettiva messa in funzione.
 
 _Si ricorda che per utilizzare le skill nei propri dispositivi Alexa Abilitated bisogna utilizzare lo __stesso__ account sia per la creazione delle Skill che per la configurazione dei Device (ad esempio Echo Plus)._
+## Riprodurre i microservizi
+La logica del sistema è all'interno dei microservizi realizzati, che nel nostro caso sono 5:
+- __trauma-vocal-microservice__: microservizio adibito alla gestione dei comandi vocali inerenti alla trauma-room
+- __gastro-vocal-microservice__: microservizio adibito alla gestione dei comandi vocali inerenti alla gastroenterologia
+- __smartscreen-vocal-microservice__: microservizio adibito alla gestione dei comandi vocali inerenti alla visualizzazione su schermo
+- __hospital-vocal-microservice__: microservizio che realizza una piccola forma di smart environment. Attualmente questo microservizio permette ad un Alexa di ottenere le proprie funzionalità
+- __events-microservice__: microservizio che si occupa di collezionare tutti i comandi provenienti dagli altri microservizi
+
+In seguito verranno mostrati i passi da seguire per poter riprodurre il sistema formato dai microservizi:
+
+- Di per sè tali microservizi sono totalmente funzionanti in locale, tuttavia, se si vuole testare l'integrazione con Alexa occorre che siano raggiungibili su un'indirizzo pubblico. Nel nostro caso è stato utilizzato Heroku come PaaS.
+
+- __Configurazione parametri__: per ogni microserizio, all'interno della cartella _"src/main/resources"_ è presente un file di configurazione, _config.json_, all'interno del quale è possibile specificare i parametri di accesso a servizi esterni. 
+ 
+- __Configurazione database__: Per quanto riguarda la storicizzazione dei dati è stato utilizzato un database di tipo NoSQL, in particolare DynamoDB.
+Per poterlo utilizzare è necessario specificare _client-id_ e _client-secret_ del proprio database.
+Per poter replicare il database in seguito verranno mostrati, per ogni tabella, la struttura e un esempio.
+
+- __Configurazione Kafka__: i microservizi comunicano tra loro mediante una piattaforma, denominata Kafka.
+Per poterla utilizzare è necessario specificare _username_ e _password_ del proprio account.
+
+## Aggiungere/modificare microservizi
+Se si intende introdurre nuove funzionalità, esterne a ciò che è già presente, occorrerà aggiungere nuovi moduli che saranno quindi dei microservizi aggiuntivi che estenderanno il sistema esistente.
+Altrimenti è possibile amppliare i microservizi esistenti, modificandone l'intefaccia. Infatti la comunicazione fra le _lambda_ AWS e i microservizi avviene mediante REST-API, perciò se si vogliono aggiungere funzioni è possibile intervenire direttamente su queste, aggiungendo un metodo REST al _router_ e associando l'handler desiderato.
+Per dettagli aggiuntivi riguardo la REST-API dei servizi si rimana all'apposito file Swagger.
+
+## Uso dei microservizi
+I microservizi presenti espongono due principali modalità di interazione verso l'utilizzatore finale:
+- __WebSocket__: Riguarda la modalità standard di interazione, in questo caso caso è possibile collegarsi all'event bus di un determinato microservizio, specificando l'id della stanza come topic. In questo modo verranno ricevuti in maniera totalmente asincrona tutti i comandi relativi a tale funzionalità.
+Ad esempio, se si intende ottenere tutti i comandi relativi al trauma per la stanza _trauma-room1_ ci si rivolge al microserizio _trauma-vocal-microservice_ con topic _trauma-room1_.
+Per potersi registrare agli eventi è possibile utilizzare una funzionalità di Vert.x, _SockJS Service Proxy_, la quale permette di creare client in applicazioni esterne (ad esempio Node.js) agganciandosi all'event-bus di Vert.x.
+La semantica dei messaggi scambiati può essere dedotta dalle tabelle del DB mostrate in precedenza
+In seguito è riportato un esempio:
+```javascript
+var eventbus = new vertx.EventBus('host-address')
+eventbus.onopen = function () {
+    eventbus.registerHandler(topic, function (message, _) {
+        console.log("Reactive trauma " + message)
+    })
+}
+```
+- __REST-API__: Ricopre tutti i casi in cui non siano sufficienti le WebSocket. Questa API offre principalmente un metodo pubblico, ovvero una GET, che permette di ottenere tutti i comandi, data una certa stanza, una data di inizio e di fine.
+La struttura del metodo è quindi la seguente:
+```
+GET host-address/roomId=?&fromDate=?&toDate=?
+```
+
 ## Uso delle Skill
 Riguardo a come interagire vocalmente con le Skill Alexa si fa riferimento alla sezione 5 della nostra [relazione](https://github.com/DiegoPergolini/AlexaForTraumaTracker/tree/master/Alexa_For_Trauma_Tracker.pdf) di progetto.
