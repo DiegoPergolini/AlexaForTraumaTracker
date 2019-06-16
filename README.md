@@ -59,11 +59,30 @@ eventbus.onopen = function () {
     })
 }
 ```
-- __REST-API__: Ricopre tutti i casi in cui non siano sufficienti le WebSocket. Questa API offre principalmente un metodo pubblico, ovvero una GET, che permette di ottenere tutti i comandi, data una certa stanza, una data di inizio e di fine.
+- __REST-API__: Ricopre tutti i casi in cui non siano sufficienti le WebSocket. Questa API offre principalmente due metodi pubblici:
+ - __GET(commands)__: un metodo GET che permette di ottenere tutti i comandi, data una certa stanza, una data di inizio e di fine. Questo comando attualmente è presente solamente nel microservizio _trauma-vocal-microservice_, tuttavia è pensato per essere esposto da tutti e 5.
+
 La struttura del metodo è quindi la seguente:
 ```
-GET host-address/roomId=?&fromDate=?&toDate=?
+GET(commands?roomId=_&fromDate=_&toDate=_)
 ```
+ - __PUT(slot)__: un metodo PUT che permette di aggiungere uno slot dinamicamente ad una tipologia di comandi del trauma. Questo metodo riguarda esclusivamente il _trauma-vocal-microservice_. 
+ 
+ Prevede di specificare nel _body_ del metodo la tipologia di comando e il nome del nuovo slot.
+ 
+ La struttura del metodo è quindi la seguente:
+```
+PUT(slot)
+```
+
+In seguito è riportato un esempio del _body_:
+```json
+{
+  "slotName": "FARMACI", 
+  "value": "aspirina"
+}
+```
+
 
 ## Uso delle Skill
 Riguardo a come interagire vocalmente con le Skill Alexa si fa riferimento alla sezione 5 della nostra [relazione](https://github.com/DiegoPergolini/AlexaForTraumaTracker/tree/master/Alexa_For_Trauma_Tracker.pdf) di progetto.
