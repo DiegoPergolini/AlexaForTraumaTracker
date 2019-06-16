@@ -64,7 +64,7 @@ eventbus.onopen = function () {
 
 La struttura del metodo è quindi la seguente:
 ```
-GET(commands?roomId=_&fromDate=_&toDate=_)
+GET("/commands?roomId=_&fromDate=_&toDate=_")
 ```
  - __PUT(slot)__: un metodo PUT che permette di aggiungere uno slot dinamicamente ad una tipologia di comandi del trauma. Questo metodo riguarda esclusivamente il _trauma-vocal-microservice_. 
  
@@ -72,7 +72,7 @@ GET(commands?roomId=_&fromDate=_&toDate=_)
  
  La struttura del metodo è quindi la seguente:
 ```
-PUT(slot)
+PUT("/slot")
 ```
 
 In seguito è riportato un esempio del _body_:
