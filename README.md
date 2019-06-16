@@ -37,7 +37,7 @@ Per poterlo utilizzare è necessario specificare _client-id_ e _client-secret_ d
 Per poter replicare il database le istruzioni sono mostrate nel file [Tables](https://github.com/DiegoPergolini/AlexaForTraumaTracker/tree/master/Tables.md).
 
 - __Configurazione Kafka__: i microservizi comunicano tra loro mediante una piattaforma, denominata Kafka.
-Per poterla utilizzare è necessario specificare _username_ e _password_ del proprio account.
+Per poterla utilizzare è necessario specificare _username_ e _password_ del proprio account e la lista di _broker_.
 
 ## Aggiungere/modificare microservizi
 Se si intende introdurre nuove funzionalità, esterne a ciò che è già presente, occorrerà aggiungere nuovi moduli che saranno quindi dei microservizi aggiuntivi che estenderanno il sistema esistente.
