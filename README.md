@@ -19,7 +19,7 @@ I passi qui descritti sono riguardanti la Skill Trauma Tracker, ma lo stesso ide
 
 _Si ricorda che per utilizzare le skill nei propri dispositivi Alexa Abilitated bisogna utilizzare lo __stesso__ account sia per la creazione delle Skill che per la configurazione dei Device (ad esempio Echo Plus)._
 ## Riprodurre i microservizi
-La logica del sistema è all'interno dei microservizi realizzati, che nel nostro caso sono 5:
+La logica del sistema è all'interno dei microservizi realizzati, che sono 5:
 - __trauma-vocal-microservice__: microservizio adibito alla gestione dei comandi vocali inerenti alla trauma-room
 - __gastro-vocal-microservice__: microservizio adibito alla gestione dei comandi vocali inerenti alla gastroenterologia
 - __smartscreen-vocal-microservice__: microservizio adibito alla gestione dei comandi vocali inerenti alla visualizzazione su schermo
@@ -41,16 +41,16 @@ Per poterla utilizzare è necessario specificare _username_ e _password_ del pro
 
 ## Aggiungere/modificare microservizi
 Se si intende introdurre nuove funzionalità, esterne a ciò che è già presente, occorrerà aggiungere nuovi moduli che saranno quindi dei microservizi aggiuntivi che estenderanno il sistema esistente.
-Altrimenti è possibile amppliare i microservizi esistenti, modificandone l'intefaccia. Infatti la comunicazione fra le _lambda_ AWS e i microservizi avviene mediante REST-API, perciò se si vogliono aggiungere funzioni è possibile intervenire direttamente su queste, aggiungendo un metodo REST al _router_ e associando l'handler desiderato.
+Altrimenti è possibile ampliare i microservizi esistenti, modificandone l'interfaccia. Infatti la comunicazione fra le _lambda_ AWS e i microservizi avviene mediante REST-API, perciò se si vogliono aggiungere funzioni è possibile intervenire direttamente su queste, aggiungendo un metodo REST al _router_ e associando l'handler desiderato.
 Per dettagli aggiuntivi riguardo la REST-API dei servizi si rimana all'apposito file Swagger.
 
 ## Uso dei microservizi
-I microservizi presenti espongono due principali modalità di interazione verso l'utilizzatore finale:
+I microservizi presenti espongono due principali modalità di interazione verso l'utilizzatore:
 - __WebSocket__: Riguarda la modalità standard di interazione, in questo caso caso è possibile collegarsi all'event bus di un determinato microservizio, specificando l'id della stanza come topic. In questo modo verranno ricevuti in maniera totalmente asincrona tutti i comandi relativi a tale funzionalità.
 Ad esempio, se si intende ottenere tutti i comandi relativi al trauma per la stanza _trauma-room1_ ci si rivolge al microserizio _trauma-vocal-microservice_ con topic _trauma-room1_.
 Per potersi registrare agli eventi è possibile utilizzare una funzionalità di Vert.x, _SockJS Service Proxy_, la quale permette di creare client in applicazioni esterne (ad esempio Node.js) agganciandosi all'event-bus di Vert.x.
 La semantica dei messaggi scambiati può essere dedotta dalle tabelle del DB mostrate in precedenza
-In seguito è riportato un esempio:
+In seguito è riportato un esempio in Node.js:
 ```javascript
 var eventbus = new vertx.EventBus('host-address')
 eventbus.onopen = function () {
