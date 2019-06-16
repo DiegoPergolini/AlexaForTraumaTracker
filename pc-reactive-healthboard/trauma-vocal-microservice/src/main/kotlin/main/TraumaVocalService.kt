@@ -40,6 +40,7 @@ class TraumaVocalService : AbstractVerticle() {
 
     private lateinit var kafkaUsername: String
     private lateinit var kafkaPassword: String
+    private lateinit var kafkaBrokers: String
 
     private lateinit var dynamoDbClient: AmazonDynamoDBClient
     private lateinit var dynamoDb: DynamoDB
@@ -60,6 +61,7 @@ class TraumaVocalService : AbstractVerticle() {
                 val kafkaConfig = json.getJsonObject("kafka")
                 kafkaUsername = kafkaConfig.getString("username")
                 kafkaPassword = kafkaConfig.getString("password")
+                kafkaBrokers = kafkaConfig.getString("brokers")
 
 
                 vertx.executeBlocking<Unit>({ future ->
@@ -84,13 +86,11 @@ class TraumaVocalService : AbstractVerticle() {
     }
 
     private fun connectToKafka() {
-
-        val brokers = "ark-01.srvs.cloudkafka.com:9094,ark-02.srvs.cloudkafka.com:9094,ark-03.srvs.cloudkafka.com:9094"
         val jaasTemplate = "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"%s\" password=\"%s\";"
         val jaasCfg = String.format(jaasTemplate, kafkaUsername, kafkaPassword)
 
         val config = HashMap<String, String>()
-        config["bootstrap.servers"] = brokers
+        config["bootstrap.servers"] = kafkaBrokers
         config["key.serializer"] = "org.apache.kafka.common.serialization.StringSerializer"
         config["value.serializer"] = "org.apache.kafka.common.serialization.StringSerializer"
         config["acks"] = "1"

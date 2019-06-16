@@ -5,7 +5,8 @@
   },
   "kafka": {
     "username": "",
-    "password": ""
+    "password": "",
+    "brokers": ""
   }
 
 }

@@ -1,7 +1,8 @@
 {
   "dynamoDB": {
     "client-id": "",
-    "client-secret": ""
+    "client-secret": "",
+    "brokers": ""
   }
 
 }
