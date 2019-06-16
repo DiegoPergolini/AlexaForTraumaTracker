@@ -42,7 +42,7 @@ Per poterla utilizzare è necessario specificare _username_ e _password_ del pro
 ## Aggiungere/modificare microservizi
 Se si intende introdurre nuove funzionalità, esterne a ciò che è già presente, occorrerà aggiungere nuovi moduli che saranno quindi dei microservizi aggiuntivi che estenderanno il sistema esistente.
 Altrimenti è possibile ampliare i microservizi esistenti, modificandone l'interfaccia. Infatti la comunicazione fra le _lambda_ AWS e i microservizi avviene mediante REST-API, perciò se si vogliono aggiungere funzioni è possibile intervenire direttamente su queste, aggiungendo un metodo REST al _router_ e associando l'handler desiderato.
-Per dettagli aggiuntivi riguardo la REST-API dei servizi si rimana all'apposito file Swagger.
+Per dettagli aggiuntivi riguardo l'utilizzo dei microservizi si rimanda al contenuto della cartella [apis](https://github.com/DiegoPergolini/AlexaForTraumaTracker/tree/master/apis), dove sono espresse le specifiche OpenAPI.
 
 ## Uso dei microservizi
 I microservizi presenti espongono due principali modalità di interazione verso l'utilizzatore:
