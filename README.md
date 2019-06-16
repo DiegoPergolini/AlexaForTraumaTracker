@@ -34,7 +34,7 @@ In seguito verranno mostrati i passi da seguire per poter riprodurre il sistema 
  
 - __Configurazione database__: Per quanto riguarda la storicizzazione dei dati è stato utilizzato un database di tipo NoSQL, in particolare DynamoDB.
 Per poterlo utilizzare è necessario specificare _client-id_ e _client-secret_ del proprio database.
-Per poter replicare il database in seguito verranno mostrati, per ogni tabella, la struttura e un esempio.
+Per poter replicare il database le istruzioni sono mostrate nel file [Tables.md].
 
 - __Configurazione Kafka__: i microservizi comunicano tra loro mediante una piattaforma, denominata Kafka.
 Per poterla utilizzare è necessario specificare _username_ e _password_ del proprio account.
