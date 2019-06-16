@@ -1,0 +1,881 @@
+openapi: 3.0.0
+info:
+  title: RaectiveHealthBoard
+  description: 'TODO: Add Description'
+  contact: {}
+  version: '1.0'
+servers:
+- url: https://reactive-smartscreen.herokuapp.com/api
+  variables: {}
+- url: https://reactive-gastro.herokuapp.com/api
+  variables: {}
+- url: https://reactive-hospital.herokuapp.com/api
+  variables: {}
+- url: https://reactive-trauma.herokuapp.com/api
+  variables: {}
+paths:
+  /visualizzaInformazioni:
+    post:
+      tags:
+      - SmartScreen
+      summary: ShowInfo
+      description: Require the visualization of a given resource
+      operationId: ShowInfo
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: application/json
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShowInfoRequest'
+            example:
+              deviceId: amzn1.ask.device.AFY4IKREKQQLFH25X25UWRIJCJNZLKPW2NTAZKYJ6RVEBX7GR7Y46OGL5UB2TOW6K3HOAG2OHYDNSEB3DCAAESHZU4TVHIYZTPWXFH3TPEOV5XZ2UHGCAJXANUN4WXZU4G7ZDK34D7K2OQQG5ZYQBEX5FUJCOTKJKFUZLOPTLR42NMYXSPMDI
+              tag: smart
+              timestamp: 1558450402
+        required: true
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://reactive-smartscreen.herokuapp.com/api
+        variables: {}
+  /inizioEsame:
+    post:
+      tags:
+      - Gastro
+      summary: StartExam
+      description: Mark the beginning of a gastro exam
+      operationId: StartExam
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: application/json
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartExamRequest'
+            example:
+              deviceId: amzn1.ask.device.AF6VO2K7THZGN5YN2A72KYJLSUUSLB7ANRYBAHLOX5YZMWURIJ4H36MJ7YRIU6F5CDLKCBTBHEFR5LDZ7FQHWAZEVIGTLUVKAFAHW3GWDQUA7PJ4N3CLVLWIAPZJGHJ26K3VT444C7B5DF7SHNWVAR2VTPKPDNFXF37M5SJUOSCPK5URYB5DE
+              tag: Gastroenterologia
+              timestamp: 1558191348
+        required: true
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://reactive-gastro.herokuapp.com/api
+        variables: {}
+  /fineEsame:
+    post:
+      tags:
+      - Gastro
+      summary: EndExam
+      description: Mark the ending of a gastro exam
+      operationId: EndExam
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: application/json
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EndExamRequest'
+            example:
+              deviceId: amzn1.ask.device.AF6VO2K7THZGN5YN2A72KYJLSUUSLB7ANRYBAHLOX5YZMWURIJ4H36MJ7YRIU6F5CDLKCBTBHEFR5LDZ7FQHWAZEVIGTLUVKAFAHW3GWDQUA7PJ4N3CLVLWIAPZJGHJ26K3VT444C7B5DF7SHNWVAR2VTPKPDNFXF37M5SJUOSCPK5URYB5DE
+              tag: Gastroenterologia
+              timestamp: 1558191348
+        required: true
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://reactive-gastro.herokuapp.com/api
+        variables: {}
+  /functionalities:
+    get:
+      tags:
+      - Hospital
+      summary: Functionalities
+      description: Get the functionalities enabled for the given device
+      operationId: Functionalities
+      parameters:
+      - name: deviceId
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO4KIYDEXVM4VQXYGMZ55SYESBVE4CKCQRFDNIL5XWLUESMWX52GX6HOC42EMIP2KC2DYZ5Z6UFZ3PUR7W5WV4OTGNWVMY3AAZNY6YMW65BGJTZMQKYKBQ2XBW4DXSE54OIIG6UJPYHADAZ56WCSRQ5FO5Z6
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://reactive-hospital.herokuapp.com/api
+        variables: {}
+  /functionality:
+    post:
+      tags:
+      - Hospital
+      summary: CheckFunctionality
+      description: Check if the device is enabled to use the given functionality
+      operationId: CheckFunctionality
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: application/json
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CheckFunctionalityRequest'
+            example:
+              deviceId: amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO4KIYDEXVM4VQXYGMZ55SYESBVE4CKCQRFDNIL5XWLUESMWX52GX6HOC42EMIP2KC2DYZ5Z6UFZ3PUR7W5WV4OTGNWVMY3AAZNY6YMW65BGJTZMQKYKBQ2XBW4DXSE54OIIG6UJPYHADAZ56WCSRQ5FO5Z6
+              functionality: SmartScreen
+        required: true
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://reactive-hospital.herokuapp.com/api
+        variables: {}
+  /ultimoComando:
+    post:
+      tags:
+      - Trauma
+      summary: DeleteLastCommand
+      description: Mark the last inserted command as deleted
+      operationId: DeleteLastCommand
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: application/json
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteLastCommandRequest'
+            example:
+              deviceId: amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO6Z2EWKHG4POUVUV43GIQLJ3UII5XGYKQGFUVN7G2UCTSUCMWPFRZ6CYPEFGS5FRDJ5NR5K6ROBINE3Y3QYDKADXX2CMJVF6GCZRFIUMXOHGYCGUOO2XUOS5QLAY3CJEGSZYVQK46BVLVGR6BXRS7MYTCUO
+              timestamp: 123456804
+              tag: TraumaTracking
+        required: true
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://reactive-trauma.herokuapp.com/api
+        variables: {}
+  /infusioneContinua:
+    post:
+      tags:
+      - Trauma
+      summary: ContinuousInfusion
+      description: Signal a continuous infusion administration with its fase
+      operationId: ContinuousInfusion
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: application/json
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContinuousInfusionRequest'
+            example:
+              deviceId: amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO6Z2EWKHG4POUVUV43GIQLJ3UII5XGYKQGFUVN7G2UCTSUCMWPFRZ6CYPEFGS5FRDJ5NR5K6ROBINE3Y3QYDKADXX2CMJVF6GCZRFIUMXOHGYCGUOO2XUOS5QLAY3CJEGSZYVQK46BVLVGR6BXRS7MYTCUO
+              timestamp: 1234568045
+              tag: TraumaTracking
+              nome: prova
+              fase: provaFase
+              dosaggio:
+                misura: ml
+                quantità: 100
+        required: true
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://reactive-trauma.herokuapp.com/api
+        variables: {}
+  /additionalSlots:
+    get:
+      tags:
+      - Trauma
+      summary: AdditionalSlots
+      description: Obtain the custom slots to be recognized by the vocal interpreter
+      operationId: AdditionalSlots
+      parameters: []
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://reactive-trauma.herokuapp.com/api
+        variables: {}
+  /inizioCaso:
+    post:
+      tags:
+      - Trauma
+      summary: StartCase
+      description: Signal the beginning of a new trauma case
+      operationId: StartCase
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: application/json
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartCaseRequest'
+            example:
+              deviceId: amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO6Z2EWKHG4POUVUV43GIQLJ3UII5XGYKQGFUVN7G2UCTSUCMWPFRZ6CYPEFGS5FRDJ5NR5K6ROBINE3Y3QYDKADXX2CMJVF6GCZRFIUMXOHGYCGUOO2XUOS5QLAY3CJEGSZYVQK46BVLVGR6BXRS7MYTCUO
+              timestamp: 123456804
+              tag: TraumaTracking
+        required: true
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://reactive-trauma.herokuapp.com/api
+        variables: {}
+  /fineCaso:
+    post:
+      tags:
+      - Trauma
+      summary: EndCase
+      description: Signal the end of a trauma case
+      operationId: EndCase
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: application/json
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EndCaseRequest'
+            example:
+              deviceId: amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO6Z2EWKHG4POUVUV43GIQLJ3UII5XGYKQGFUVN7G2UCTSUCMWPFRZ6CYPEFGS5FRDJ5NR5K6ROBINE3Y3QYDKADXX2CMJVF6GCZRFIUMXOHGYCGUOO2XUOS5QLAY3CJEGSZYVQK46BVLVGR6BXRS7MYTCUO
+              timestamp: 123456804
+              tag: TraumaTracking
+        required: true
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://reactive-trauma.herokuapp.com/api
+        variables: {}
+  /commands:
+    get:
+      tags:
+      - Trauma
+      summary: IssuedCommands
+      description: Get the commands registered by the system in the given time range
+      operationId: IssuedCommands
+      parameters:
+      - name: roomId
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: traumaroom1
+      - name: fromDate
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 123456
+      - name: toDate
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 12345678
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://reactive-trauma.herokuapp.com/api
+        variables: {}
+  /slot:
+    put:
+      tags:
+      - Trauma
+      summary: AdditionalSlots
+      description: Insert a new slot in order to enhance the vocal interpreter skills
+      operationId: AdditionalSlots1
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: application/json
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdditionalSlotsRequest'
+            example:
+              slotName: FARMACI
+              value: prova
+              tipoFarmaco: antibiotico
+              dosaggio:
+                misura: ml
+                quantità: 100
+        required: true
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://reactive-trauma.herokuapp.com/api
+        variables: {}
+  /farmaco:
+    post:
+      tags:
+      - Trauma
+      summary: Drug
+      description: Register the administration of a drug
+      operationId: Drug
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: application/json
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DrugRequest'
+            example:
+              deviceId: amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO6Z2EWKHG4POUVUV43GIQLJ3UII5XGYKQGFUVN7G2UCTSUCMWPFRZ6CYPEFGS5FRDJ5NR5K6ROBINE3Y3QYDKADXX2CMJVF6GCZRFIUMXOHGYCGUOO2XUOS5QLAY3CJEGSZYVQK46BVLVGR6BXRS7MYTCUO
+              timestamp: 123456804
+              tag: TraumaTracking
+              nome: CORTISONE
+              dosaggio:
+                quantità: 100
+                misura: g
+        required: true
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://reactive-trauma.herokuapp.com/api
+        variables: {}
+  /diagnostica:
+    post:
+      tags:
+      - Trauma
+      summary: Exam
+      description: Register the execution of an exam
+      operationId: Exam
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: application/json
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExamRequest'
+            example:
+              deviceId: amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO6Z2EWKHG4POUVUV43GIQLJ3UII5XGYKQGFUVN7G2UCTSUCMWPFRZ6CYPEFGS5FRDJ5NR5K6ROBINE3Y3QYDKADXX2CMJVF6GCZRFIUMXOHGYCGUOO2XUOS5QLAY3CJEGSZYVQK46BVLVGR6BXRS7MYTCUO
+              timestamp: 123456804
+              tag: TraumaTracking
+              tipoDiagnostica: provaTipoDiagnostica
+              nome: ProvaDiagnostica
+              opzioni:
+                prova: 1
+        required: true
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://reactive-trauma.herokuapp.com/api
+        variables: {}
+  /manovra:
+    post:
+      tags:
+      - Trauma
+      summary: Maneuver
+      description: Register the execution of a maneuver
+      operationId: Maneuver
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: application/json
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ManeuverRequest'
+            example:
+              deviceId: amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO6Z2EWKHG4POUVUV43GIQLJ3UII5XGYKQGFUVN7G2UCTSUCMWPFRZ6CYPEFGS5FRDJ5NR5K6ROBINE3Y3QYDKADXX2CMJVF6GCZRFIUMXOHGYCGUOO2XUOS5QLAY3CJEGSZYVQK46BVLVGR6BXRS7MYTCUO
+              timestamp: 123456804
+              tag: TraumaTracking
+              fase: ProvaFase
+              nome: Prova
+              opzioni:
+                opzione1: 100
+                opzione2: false
+        required: true
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://reactive-trauma.herokuapp.com/api
+        variables: {}
+components:
+  schemas:
+    ShowInfoRequest:
+      title: ShowInfoRequest
+      required:
+      - deviceId
+      - tag
+      - timestamp
+      type: object
+      properties:
+        deviceId:
+          type: string
+        tag:
+          type: string
+        timestamp:
+          type: integer
+          format: int32
+      example:
+        deviceId: amzn1.ask.device.AFY4IKREKQQLFH25X25UWRIJCJNZLKPW2NTAZKYJ6RVEBX7GR7Y46OGL5UB2TOW6K3HOAG2OHYDNSEB3DCAAESHZU4TVHIYZTPWXFH3TPEOV5XZ2UHGCAJXANUN4WXZU4G7ZDK34D7K2OQQG5ZYQBEX5FUJCOTKJKFUZLOPTLR42NMYXSPMDI
+        tag: smart
+        timestamp: 1558450402
+    StartExamRequest:
+      title: StartExamRequest
+      required:
+      - deviceId
+      - tag
+      - timestamp
+      type: object
+      properties:
+        deviceId:
+          type: string
+        tag:
+          type: string
+        timestamp:
+          type: integer
+          format: int32
+      example:
+        deviceId: amzn1.ask.device.AF6VO2K7THZGN5YN2A72KYJLSUUSLB7ANRYBAHLOX5YZMWURIJ4H36MJ7YRIU6F5CDLKCBTBHEFR5LDZ7FQHWAZEVIGTLUVKAFAHW3GWDQUA7PJ4N3CLVLWIAPZJGHJ26K3VT444C7B5DF7SHNWVAR2VTPKPDNFXF37M5SJUOSCPK5URYB5DE
+        tag: Gastroenterologia
+        timestamp: 1558191348
+    EndExamRequest:
+      title: EndExamRequest
+      required:
+      - deviceId
+      - tag
+      - timestamp
+      type: object
+      properties:
+        deviceId:
+          type: string
+        tag:
+          type: string
+        timestamp:
+          type: integer
+          format: int32
+      example:
+        deviceId: amzn1.ask.device.AF6VO2K7THZGN5YN2A72KYJLSUUSLB7ANRYBAHLOX5YZMWURIJ4H36MJ7YRIU6F5CDLKCBTBHEFR5LDZ7FQHWAZEVIGTLUVKAFAHW3GWDQUA7PJ4N3CLVLWIAPZJGHJ26K3VT444C7B5DF7SHNWVAR2VTPKPDNFXF37M5SJUOSCPK5URYB5DE
+        tag: Gastroenterologia
+        timestamp: 1558191348
+    CheckFunctionalityRequest:
+      title: CheckFunctionalityRequest
+      required:
+      - deviceId
+      - functionality
+      type: object
+      properties:
+        deviceId:
+          type: string
+        functionality:
+          type: string
+      example:
+        deviceId: amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO4KIYDEXVM4VQXYGMZ55SYESBVE4CKCQRFDNIL5XWLUESMWX52GX6HOC42EMIP2KC2DYZ5Z6UFZ3PUR7W5WV4OTGNWVMY3AAZNY6YMW65BGJTZMQKYKBQ2XBW4DXSE54OIIG6UJPYHADAZ56WCSRQ5FO5Z6
+        functionality: SmartScreen
+    DeleteLastCommandRequest:
+      title: DeleteLastCommandRequest
+      required:
+      - deviceId
+      - timestamp
+      - tag
+      type: object
+      properties:
+        deviceId:
+          type: string
+        timestamp:
+          type: integer
+          format: int32
+        tag:
+          type: string
+      example:
+        deviceId: amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO6Z2EWKHG4POUVUV43GIQLJ3UII5XGYKQGFUVN7G2UCTSUCMWPFRZ6CYPEFGS5FRDJ5NR5K6ROBINE3Y3QYDKADXX2CMJVF6GCZRFIUMXOHGYCGUOO2XUOS5QLAY3CJEGSZYVQK46BVLVGR6BXRS7MYTCUO
+        timestamp: 123456804
+        tag: TraumaTracking
+    ContinuousInfusionRequest:
+      title: ContinuousInfusionRequest
+      required:
+      - deviceId
+      - timestamp
+      - tag
+      - nome
+      - fase
+      - dosaggio
+      type: object
+      properties:
+        deviceId:
+          type: string
+        timestamp:
+          type: integer
+          format: int32
+        tag:
+          type: string
+        nome:
+          type: string
+        fase:
+          type: string
+        dosaggio:
+          $ref: '#/components/schemas/Dosaggio'
+      example:
+        deviceId: amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO6Z2EWKHG4POUVUV43GIQLJ3UII5XGYKQGFUVN7G2UCTSUCMWPFRZ6CYPEFGS5FRDJ5NR5K6ROBINE3Y3QYDKADXX2CMJVF6GCZRFIUMXOHGYCGUOO2XUOS5QLAY3CJEGSZYVQK46BVLVGR6BXRS7MYTCUO
+        timestamp: 1234568045
+        tag: TraumaTracking
+        nome: prova
+        fase: provaFase
+        dosaggio:
+          misura: ml
+          quantità: 100
+    Dosaggio:
+      title: Dosaggio
+      required:
+      - misura
+      - quantità
+      type: object
+      properties:
+        misura:
+          type: string
+        quantità:
+          type: integer
+          format: int32
+      example:
+        misura: ml
+        quantità: 100
+    StartCaseRequest:
+      title: StartCaseRequest
+      required:
+      - deviceId
+      - timestamp
+      - tag
+      type: object
+      properties:
+        deviceId:
+          type: string
+        timestamp:
+          type: integer
+          format: int32
+        tag:
+          type: string
+      example:
+        deviceId: amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO6Z2EWKHG4POUVUV43GIQLJ3UII5XGYKQGFUVN7G2UCTSUCMWPFRZ6CYPEFGS5FRDJ5NR5K6ROBINE3Y3QYDKADXX2CMJVF6GCZRFIUMXOHGYCGUOO2XUOS5QLAY3CJEGSZYVQK46BVLVGR6BXRS7MYTCUO
+        timestamp: 123456804
+        tag: TraumaTracking
+    EndCaseRequest:
+      title: EndCaseRequest
+      required:
+      - deviceId
+      - timestamp
+      - tag
+      type: object
+      properties:
+        deviceId:
+          type: string
+        timestamp:
+          type: integer
+          format: int32
+        tag:
+          type: string
+      example:
+        deviceId: amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO6Z2EWKHG4POUVUV43GIQLJ3UII5XGYKQGFUVN7G2UCTSUCMWPFRZ6CYPEFGS5FRDJ5NR5K6ROBINE3Y3QYDKADXX2CMJVF6GCZRFIUMXOHGYCGUOO2XUOS5QLAY3CJEGSZYVQK46BVLVGR6BXRS7MYTCUO
+        timestamp: 123456804
+        tag: TraumaTracking
+    AdditionalSlotsRequest:
+      title: AdditionalSlotsRequest
+      required:
+      - slotName
+      - value
+      - tipoFarmaco
+      - dosaggio
+      type: object
+      properties:
+        slotName:
+          type: string
+        value:
+          type: string
+        tipoFarmaco:
+          type: string
+        dosaggio:
+          $ref: '#/components/schemas/Dosaggio'
+      example:
+        slotName: FARMACI
+        value: prova
+        tipoFarmaco: antibiotico
+        dosaggio:
+          misura: ml
+          quantità: 100
+    DrugRequest:
+      title: DrugRequest
+      required:
+      - deviceId
+      - timestamp
+      - tag
+      - nome
+      - dosaggio
+      type: object
+      properties:
+        deviceId:
+          type: string
+        timestamp:
+          type: integer
+          format: int32
+        tag:
+          type: string
+        nome:
+          type: string
+        dosaggio:
+          $ref: '#/components/schemas/Dosaggio'
+      example:
+        deviceId: amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO6Z2EWKHG4POUVUV43GIQLJ3UII5XGYKQGFUVN7G2UCTSUCMWPFRZ6CYPEFGS5FRDJ5NR5K6ROBINE3Y3QYDKADXX2CMJVF6GCZRFIUMXOHGYCGUOO2XUOS5QLAY3CJEGSZYVQK46BVLVGR6BXRS7MYTCUO
+        timestamp: 123456804
+        tag: TraumaTracking
+        nome: CORTISONE
+        dosaggio:
+          quantità: 100
+          misura: g
+    ExamRequest:
+      title: ExamRequest
+      required:
+      - deviceId
+      - timestamp
+      - tag
+      - tipoDiagnostica
+      - nome
+      - opzioni
+      type: object
+      properties:
+        deviceId:
+          type: string
+        timestamp:
+          type: integer
+          format: int32
+        tag:
+          type: string
+        tipoDiagnostica:
+          type: string
+        nome:
+          type: string
+        opzioni:
+          $ref: '#/components/schemas/Opzioni'
+      example:
+        deviceId: amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO6Z2EWKHG4POUVUV43GIQLJ3UII5XGYKQGFUVN7G2UCTSUCMWPFRZ6CYPEFGS5FRDJ5NR5K6ROBINE3Y3QYDKADXX2CMJVF6GCZRFIUMXOHGYCGUOO2XUOS5QLAY3CJEGSZYVQK46BVLVGR6BXRS7MYTCUO
+        timestamp: 123456804
+        tag: TraumaTracking
+        tipoDiagnostica: provaTipoDiagnostica
+        nome: ProvaDiagnostica
+        opzioni:
+          prova: 1
+    Opzioni:
+      title: Opzioni
+      required:
+      - prova
+      type: object
+      properties:
+        prova:
+          type: integer
+          format: int32
+      example:
+        prova: 1
+    ManeuverRequest:
+      title: ManeuverRequest
+      required:
+      - deviceId
+      - timestamp
+      - tag
+      - fase
+      - nome
+      - opzioni
+      type: object
+      properties:
+        deviceId:
+          type: string
+        timestamp:
+          type: integer
+          format: int32
+        tag:
+          type: string
+        fase:
+          type: string
+        nome:
+          type: string
+        opzioni:
+          $ref: '#/components/schemas/Opzioni1'
+      example:
+        deviceId: amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO6Z2EWKHG4POUVUV43GIQLJ3UII5XGYKQGFUVN7G2UCTSUCMWPFRZ6CYPEFGS5FRDJ5NR5K6ROBINE3Y3QYDKADXX2CMJVF6GCZRFIUMXOHGYCGUOO2XUOS5QLAY3CJEGSZYVQK46BVLVGR6BXRS7MYTCUO
+        timestamp: 123456804
+        tag: TraumaTracking
+        fase: ProvaFase
+        nome: Prova
+        opzioni:
+          opzione1: 100
+          opzione2: false
+    Opzioni1:
+      title: Opzioni1
+      required:
+      - opzione1
+      - opzione2
+      type: object
+      properties:
+        opzione1:
+          type: integer
+          format: int32
+        opzione2:
+          type: boolean
+      example:
+        opzione1: 100
+        opzione2: false
+tags:
+- name: SmartScreen
+- name: Gastro
+- name: Hospital
+- name: Trauma

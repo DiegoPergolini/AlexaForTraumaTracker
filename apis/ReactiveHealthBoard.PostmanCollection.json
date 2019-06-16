@@ -1,0 +1,525 @@
+{
+	"info": {
+		"_postman_id": "8c6ae623-1d3a-4717-8e15-4f3b75313ec5",
+		"name": "RaectiveHealthBoard",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SmartScreen",
+			"item": [
+				{
+					"name": "ShowInfo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"deviceId\": \"amzn1.ask.device.AFY4IKREKQQLFH25X25UWRIJCJNZLKPW2NTAZKYJ6RVEBX7GR7Y46OGL5UB2TOW6K3HOAG2OHYDNSEB3DCAAESHZU4TVHIYZTPWXFH3TPEOV5XZ2UHGCAJXANUN4WXZU4G7ZDK34D7K2OQQG5ZYQBEX5FUJCOTKJKFUZLOPTLR42NMYXSPMDI\",\n  \"tag\": \"smart\",\n  \"timestamp\": 1558450402\n}"
+						},
+						"url": {
+							"raw": "https://reactive-smartscreen.herokuapp.com/api/visualizzaInformazioni",
+							"protocol": "https",
+							"host": [
+								"reactive-smartscreen",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"visualizzaInformazioni"
+							]
+						},
+						"description": "Require the visualization of a given resource"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Gastro",
+			"item": [
+				{
+					"name": "StartExam",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"deviceId\": \"amzn1.ask.device.AF6VO2K7THZGN5YN2A72KYJLSUUSLB7ANRYBAHLOX5YZMWURIJ4H36MJ7YRIU6F5CDLKCBTBHEFR5LDZ7FQHWAZEVIGTLUVKAFAHW3GWDQUA7PJ4N3CLVLWIAPZJGHJ26K3VT444C7B5DF7SHNWVAR2VTPKPDNFXF37M5SJUOSCPK5URYB5DE\",\n  \"tag\": \"Gastroenterologia\",\n  \"timestamp\": 1558191348\n}"
+						},
+						"url": {
+							"raw": "https://reactive-gastro.herokuapp.com/api/inizioEsame",
+							"protocol": "https",
+							"host": [
+								"reactive-gastro",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"inizioEsame"
+							]
+						},
+						"description": "Mark the beginning of a gastro exam"
+					},
+					"response": []
+				},
+				{
+					"name": "EndExam",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"deviceId\": \"amzn1.ask.device.AF6VO2K7THZGN5YN2A72KYJLSUUSLB7ANRYBAHLOX5YZMWURIJ4H36MJ7YRIU6F5CDLKCBTBHEFR5LDZ7FQHWAZEVIGTLUVKAFAHW3GWDQUA7PJ4N3CLVLWIAPZJGHJ26K3VT444C7B5DF7SHNWVAR2VTPKPDNFXF37M5SJUOSCPK5URYB5DE\",\n  \"tag\": \"Gastroenterologia\",\n  \"timestamp\": 1558191348\n}"
+						},
+						"url": {
+							"raw": "https://reactive-gastro.herokuapp.com/api/fineEsame",
+							"protocol": "https",
+							"host": [
+								"reactive-gastro",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"fineEsame"
+							]
+						},
+						"description": "Mark the ending of a gastro exam"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Hospital",
+			"item": [
+				{
+					"name": "Functionalities",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://reactive-hospital.herokuapp.com/api/functionalities?deviceId=amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO4KIYDEXVM4VQXYGMZ55SYESBVE4CKCQRFDNIL5XWLUESMWX52GX6HOC42EMIP2KC2DYZ5Z6UFZ3PUR7W5WV4OTGNWVMY3AAZNY6YMW65BGJTZMQKYKBQ2XBW4DXSE54OIIG6UJPYHADAZ56WCSRQ5FO5Z6",
+							"protocol": "https",
+							"host": [
+								"reactive-hospital",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"functionalities"
+							],
+							"query": [
+								{
+									"key": "deviceId",
+									"value": "amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO4KIYDEXVM4VQXYGMZ55SYESBVE4CKCQRFDNIL5XWLUESMWX52GX6HOC42EMIP2KC2DYZ5Z6UFZ3PUR7W5WV4OTGNWVMY3AAZNY6YMW65BGJTZMQKYKBQ2XBW4DXSE54OIIG6UJPYHADAZ56WCSRQ5FO5Z6"
+								}
+							]
+						},
+						"description": "Get the functionalities enabled for the given device"
+					},
+					"response": []
+				},
+				{
+					"name": "CheckFunctionality",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"deviceId\": \"amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO4KIYDEXVM4VQXYGMZ55SYESBVE4CKCQRFDNIL5XWLUESMWX52GX6HOC42EMIP2KC2DYZ5Z6UFZ3PUR7W5WV4OTGNWVMY3AAZNY6YMW65BGJTZMQKYKBQ2XBW4DXSE54OIIG6UJPYHADAZ56WCSRQ5FO5Z6\",\n\t\"functionality\": \"SmartScreen\"\n}"
+						},
+						"url": {
+							"raw": "https://reactive-hospital.herokuapp.com/api/functionality",
+							"protocol": "https",
+							"host": [
+								"reactive-hospital",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"functionality"
+							]
+						},
+						"description": "Check if the device is enabled to use the given functionality"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Trauma",
+			"item": [
+				{
+					"name": "DeleteLastCommand",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"deviceId\":\"amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO6Z2EWKHG4POUVUV43GIQLJ3UII5XGYKQGFUVN7G2UCTSUCMWPFRZ6CYPEFGS5FRDJ5NR5K6ROBINE3Y3QYDKADXX2CMJVF6GCZRFIUMXOHGYCGUOO2XUOS5QLAY3CJEGSZYVQK46BVLVGR6BXRS7MYTCUO\",\n\t\"timestamp\":123456804,\n\t\"tag\":\"TraumaTracking\"\n}"
+						},
+						"url": {
+							"raw": "https://reactive-trauma.herokuapp.com/api/ultimoComando?",
+							"protocol": "https",
+							"host": [
+								"reactive-trauma",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"ultimoComando"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Mark the last inserted command as deleted"
+					},
+					"response": []
+				},
+				{
+					"name": "ContinuousInfusion",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"deviceId\":\"amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO6Z2EWKHG4POUVUV43GIQLJ3UII5XGYKQGFUVN7G2UCTSUCMWPFRZ6CYPEFGS5FRDJ5NR5K6ROBINE3Y3QYDKADXX2CMJVF6GCZRFIUMXOHGYCGUOO2XUOS5QLAY3CJEGSZYVQK46BVLVGR6BXRS7MYTCUO\",\n\t\"timestamp\":1234568045,\n\t\"tag\":\"TraumaTracking\",\n\t\"nome\": \"prova\",\n\t\"fase\": \"provaFase\",\n\t\"dosaggio\": {\n\t\t\"misura\": \"ml\",\n\t\t\"quantità\": 100\n\t}\n}"
+						},
+						"url": {
+							"raw": "https://reactive-trauma.herokuapp.com/api/infusioneContinua",
+							"protocol": "https",
+							"host": [
+								"reactive-trauma",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"infusioneContinua"
+							]
+						},
+						"description": "Signal a continuous infusion administration with its fase"
+					},
+					"response": []
+				},
+				{
+					"name": "AdditionalSlots",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://reactive-trauma.herokuapp.com/api/additionalSlots",
+							"protocol": "https",
+							"host": [
+								"reactive-trauma",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"additionalSlots"
+							]
+						},
+						"description": "Obtain the custom slots to be recognized by the vocal interpreter"
+					},
+					"response": []
+				},
+				{
+					"name": "StartCase",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"deviceId\":\"amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO6Z2EWKHG4POUVUV43GIQLJ3UII5XGYKQGFUVN7G2UCTSUCMWPFRZ6CYPEFGS5FRDJ5NR5K6ROBINE3Y3QYDKADXX2CMJVF6GCZRFIUMXOHGYCGUOO2XUOS5QLAY3CJEGSZYVQK46BVLVGR6BXRS7MYTCUO\",\n\t\"timestamp\":123456804,\n\t\"tag\":\"TraumaTracking\"\n}"
+						},
+						"url": {
+							"raw": "https://reactive-trauma.herokuapp.com/api/inizioCaso",
+							"protocol": "https",
+							"host": [
+								"reactive-trauma",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"inizioCaso"
+							]
+						},
+						"description": "Signal the beginning of a new trauma case"
+					},
+					"response": []
+				},
+				{
+					"name": "EndCase",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"deviceId\":\"amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO6Z2EWKHG4POUVUV43GIQLJ3UII5XGYKQGFUVN7G2UCTSUCMWPFRZ6CYPEFGS5FRDJ5NR5K6ROBINE3Y3QYDKADXX2CMJVF6GCZRFIUMXOHGYCGUOO2XUOS5QLAY3CJEGSZYVQK46BVLVGR6BXRS7MYTCUO\",\n\t\"timestamp\":123456804,\n\t\"tag\":\"TraumaTracking\"\n}"
+						},
+						"url": {
+							"raw": "https://reactive-trauma.herokuapp.com/api/fineCaso",
+							"protocol": "https",
+							"host": [
+								"reactive-trauma",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"fineCaso"
+							]
+						},
+						"description": "Signal the end of a trauma case"
+					},
+					"response": []
+				},
+				{
+					"name": "IssuedCommands",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://reactive-trauma.herokuapp.com/api/commands?roomId=traumaroom1&fromDate=123456&toDate=12345678",
+							"protocol": "https",
+							"host": [
+								"reactive-trauma",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"commands"
+							],
+							"query": [
+								{
+									"key": "roomId",
+									"value": "traumaroom1"
+								},
+								{
+									"key": "fromDate",
+									"value": "123456"
+								},
+								{
+									"key": "toDate",
+									"value": "12345678"
+								}
+							]
+						},
+						"description": "Get the commands registered by the system in the given time range"
+					},
+					"response": []
+				},
+				{
+					"name": "AdditionalSlots",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"slotName\": \"FARMACI\",\n\t\"value\": \"prova\",\n\t\"tipoFarmaco\":\"antibiotico\",\n\t\"dosaggio\": {\n\t\t\"misura\": \"ml\",\n\t\t\"quantità\": 100\n\t}\n}"
+						},
+						"url": {
+							"raw": "https://reactive-trauma.herokuapp.com/api/slot",
+							"protocol": "https",
+							"host": [
+								"reactive-trauma",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"slot"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Insert a new slot in order to enhance the vocal interpreter skills"
+					},
+					"response": []
+				},
+				{
+					"name": "Drug",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"deviceId\":\"amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO6Z2EWKHG4POUVUV43GIQLJ3UII5XGYKQGFUVN7G2UCTSUCMWPFRZ6CYPEFGS5FRDJ5NR5K6ROBINE3Y3QYDKADXX2CMJVF6GCZRFIUMXOHGYCGUOO2XUOS5QLAY3CJEGSZYVQK46BVLVGR6BXRS7MYTCUO\",\n\t\"timestamp\":123456804,\n\t\"tag\":\"TraumaTracking\",\n\t\"nome\":\"CORTISONE\",\n\t\"dosaggio\": {\n\t\t\"quantità\": 100,\n\t\t\"misura\": \"g\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "https://reactive-trauma.herokuapp.com/api/farmaco",
+							"protocol": "https",
+							"host": [
+								"reactive-trauma",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"farmaco"
+							]
+						},
+						"description": "Register the administration of a drug"
+					},
+					"response": []
+				},
+				{
+					"name": "Exam",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"deviceId\":\"amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO6Z2EWKHG4POUVUV43GIQLJ3UII5XGYKQGFUVN7G2UCTSUCMWPFRZ6CYPEFGS5FRDJ5NR5K6ROBINE3Y3QYDKADXX2CMJVF6GCZRFIUMXOHGYCGUOO2XUOS5QLAY3CJEGSZYVQK46BVLVGR6BXRS7MYTCUO\",\n\t\"timestamp\":123456804,\n\t\"tag\":\"TraumaTracking\",\n\t\"tipoDiagnostica\":\"provaTipoDiagnostica\",\n\t\"nome\":\"ProvaDiagnostica\",\n\t\"opzioni\": {\n\t\t\"prova\": 1\n\t}\n}"
+						},
+						"url": {
+							"raw": "https://reactive-trauma.herokuapp.com/api/diagnostica",
+							"protocol": "https",
+							"host": [
+								"reactive-trauma",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"diagnostica"
+							]
+						},
+						"description": "Register the execution of an exam"
+					},
+					"response": []
+				},
+				{
+					"name": "Maneuver",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"deviceId\":\"amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO6Z2EWKHG4POUVUV43GIQLJ3UII5XGYKQGFUVN7G2UCTSUCMWPFRZ6CYPEFGS5FRDJ5NR5K6ROBINE3Y3QYDKADXX2CMJVF6GCZRFIUMXOHGYCGUOO2XUOS5QLAY3CJEGSZYVQK46BVLVGR6BXRS7MYTCUO\",\n\t\"timestamp\":123456804,\n\t\"tag\":\"TraumaTracking\",\n\t\"fase\":\"ProvaFase\",\n\t\"nome\":\"Prova\",\n\t\"opzioni\": {\n\t\t\"opzione1\": 100,\n\t\t\"opzione2\": false\n\t}\n}"
+						},
+						"url": {
+							"raw": "https://reactive-trauma.herokuapp.com/api/manovra",
+							"protocol": "https",
+							"host": [
+								"reactive-trauma",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"manovra"
+							]
+						},
+						"description": "Register the execution of a maneuver"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
