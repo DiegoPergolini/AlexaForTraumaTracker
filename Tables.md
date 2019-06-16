@@ -151,3 +151,15 @@ Questa tabella contiene i parametri default dei farmaci, in modo tale che quando
   "tipoFarmaco": "Farmaci Generici"
 }
 ```
+
+### FarmaciPerInfusione
+Questa tabella permette di controllare se un determinato farmaco è uno tra i farmaci che possono essere dati in Infusione.
+
+- __chiave di partizione__: nome
+- __chiave di ordinamento__: -
+- Esempio:
+```json
+{
+  "nome": "ADRENALINA"
+}
+```
