@@ -1,0 +1,1 @@
+web: java -jar events-microservice/build/libs/events-microservice-1.0.0-fat.jar

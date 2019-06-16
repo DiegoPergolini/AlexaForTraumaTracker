@@ -1,0 +1,11 @@
+{
+  "dynamoDB": {
+    "client-id": "",
+    "client-secret": ""
+  },
+  "kafka": {
+    "username": "",
+    "password": ""
+  }
+
+}

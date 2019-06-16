@@ -1,0 +1,45 @@
+allprojects  {
+    apply plugin: 'java'
+
+    group 'pc-reactive-health'
+    version '1.0.0'
+}
+
+subprojects {
+    apply plugin: 'java'
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+
+    repositories {
+        mavenLocal()
+
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+        maven { url "http://repo.maven.apache.org/maven2" }
+    }
+
+    dependencies {
+        compile group: 'io.vertx', name: 'vertx-core', version:'3.7.0'
+        compile group: 'io.vertx', name: 'vertx-rx-java', version:'3.7.0'
+        compile group: 'io.vertx', name: 'vertx-web', version:'3.7.0'
+        compile group: 'io.vertx', name: 'vertx-service-proxy', version:'3.7.0'
+        compile group: 'io.vertx', name: 'vertx-sockjs-service-proxy', version:'3.7.0'
+        compile group: 'io.vertx', name: 'vertx-hazelcast', version:'3.7.0'
+        compile group: 'io.vertx', name: 'vertx-service-discovery', version:'3.7.0'
+        compile group: 'io.vertx', name: 'vertx-circuit-breaker', version:'3.7.0'
+        compile group: 'io.vertx', name: 'vertx-config', version:'3.7.0'
+        compile group: 'io.vertx', name: 'vertx-health-check', version:'3.7.0'
+        //compile group: 'org.slf4j', name: 'slf4j-api', version:'1.7.22'
+        //compile group: 'org.apache.logging.log4j', name: 'log4j-api', version:'2.8'
+        //compile group: 'org.apache.logging.log4j', name: 'log4j-core', version:'2.8'
+        //compile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version:'2.8'
+        //compile group: 'biz.paluch.logging', name: 'logstash-gelf', version:'1.11.0'
+        testCompile group: 'io.vertx', name: 'vertx-unit', version:'3.7.0'
+        testCompile group: 'junit', name: 'junit', version:'4.12'
+        testCompile group: 'org.assertj', name: 'assertj-core', version:'3.6.2'
+        testCompile group: 'com.jayway.awaitility', name: 'awaitility', version:'1.7.0'
+        testCompile group: 'io.rest-assured', name: 'rest-assured', version:'3.0.2'
+        compileOnly group: 'io.vertx', name: 'vertx-codegen', version:'3.7.0'
+        compileOnly group: 'io.vertx', name: 'vertx-lang-js', version:'3.7.0'
+    }
+}

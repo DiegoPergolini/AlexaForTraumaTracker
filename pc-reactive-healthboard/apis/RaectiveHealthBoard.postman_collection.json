@@ -1,0 +1,199 @@
+{
+	"info": {
+		"_postman_id": "8c6ae623-1d3a-4717-8e15-4f3b75313ec5",
+		"name": "RaectiveHealthBoard",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PostFarmaco",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"deviceId\":\"alexa_001\",\n\t\"timestamp\":123456789,\n\t\"tipoFarmaco\":\"A\",\n\t\"nome\":\"Prova\",\n\t\"dosaggio\": {\n\t\t\"quantità\": 100,\n\t\t\"misura\": \"ml\"\n\t}\n}"
+				},
+				"url": {
+					"raw": "https://reactive-healthboard.herokuapp.com/api/farmaco",
+					"protocol": "https",
+					"host": [
+						"reactive-healthboard",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"farmaco"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostDiagnostica",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"deviceId\":\"alexa_003\",\n\t\"timestamp\":123456789,\n\t\"tipoDiagnostica\":\"provaTipoDiagnostica\",\n\t\"tipoLaboratorio\":\"provaTipoLab\",\n\t\"nome\":\"ProvaDiagnostica\"\n}"
+				},
+				"url": {
+					"raw": "https://reactive-healthboard.herokuapp.com/api/diagnostica",
+					"protocol": "https",
+					"host": [
+						"reactive-healthboard",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"diagnostica"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostManovra",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"deviceId\":\"alexa_001\",\n\t\"timestamp\":123456789,\n\t\"fase\":\"ProvaFase\",\n\t\"nome\":\"Prova\",\n\t\"opzioni\": {\n\t\t\"opzione1\": 100,\n\t\t\"opzione2\": false\n\t}\n}"
+				},
+				"url": {
+					"raw": "https://reactive-healthboard.herokuapp.com/api/manovra",
+					"protocol": "https",
+					"host": [
+						"reactive-healthboard",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"manovra"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteComando",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://reactive-healthboard.herokuapp.com/api/ultimoComando?deviceId=alexa_001",
+					"protocol": "https",
+					"host": [
+						"reactive-healthboard",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"ultimoComando"
+					],
+					"query": [
+						{
+							"key": "deviceId",
+							"value": "alexa_001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CheckFunctionality",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"deviceId\": \"amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO4KIYDEXVM4VQXYGMZ55SYESBVE4CKCQRFDNIL5XWLUESMWX52GX6HOC42EMIP2KC2DYZ5Z6UFZ3PUR7W5WV4OTGNWVMY3AAZNY6YMW65BGJTZMQKYKBQ2XBW4DXSE54OIIG6UJPYHADAZ56WCSRQ5FO5Z6\",\n\t\"functionality\": \"TraumaTracking\"\n}"
+				},
+				"url": {
+					"raw": "https://reactive-hospital.herokuapp.com/api/functionality",
+					"protocol": "https",
+					"host": [
+						"reactive-hospital",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"functionality"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetFunctionalities",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://reactive-hospital.herokuapp.com/api/functionalities?deviceId=amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO4KIYDEXVM4VQXYGMZ55SYESBVE4CKCQRFDNIL5XWLUESMWX52GX6HOC42EMIP2KC2DYZ5Z6UFZ3PUR7W5WV4OTGNWVMY3AAZNY6YMW65BGJTZMQKYKBQ2XBW4DXSE54OIIG6UJPYHADAZ56WCSRQ5FO5Z6",
+					"protocol": "https",
+					"host": [
+						"reactive-hospital",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"functionalities"
+					],
+					"query": [
+						{
+							"key": "deviceId",
+							"value": "amzn1.ask.device.AGYV66I26XAPEADYMZDR6EQWBAO4KIYDEXVM4VQXYGMZ55SYESBVE4CKCQRFDNIL5XWLUESMWX52GX6HOC42EMIP2KC2DYZ5Z6UFZ3PUR7W5WV4OTGNWVMY3AAZNY6YMW65BGJTZMQKYKBQ2XBW4DXSE54OIIG6UJPYHADAZ56WCSRQ5FO5Z6"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

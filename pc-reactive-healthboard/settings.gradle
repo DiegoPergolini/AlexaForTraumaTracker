@@ -1,0 +1,8 @@
+rootProject.name = 'pc-reactive-healthboard'
+include 'events-microservice'
+include 'microservice-common'
+include 'hospital-microservice'
+include 'trauma-vocal-microservice'
+include 'gastro-vocal-microservice'
+include 'smartscreen-vocal-microservice'
+
